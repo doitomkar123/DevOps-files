@@ -1,0 +1,6 @@
+---
+# vars file for apt-role
+pkgs:
+  - htop
+  - tree
+  - nginx

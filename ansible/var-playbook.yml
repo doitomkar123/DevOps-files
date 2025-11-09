@@ -1,0 +1,22 @@
+- 
+  name: 'play1'
+  hosts: server1
+  become: true
+  become_user: root
+  vars:
+    myList:
+      - htop
+      - tree
+    string: 'abc'
+  tasks:
+    - name: 'task error handling'
+      shell: touch /tmp/mydir/new.txt
+      ignore_errors: true
+
+    - name: 'variables apt'
+      apt:
+        name: "{{ myList }}"
+        state: present
+        update_cache: yes
+      when: string == 'abc'
+

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxpod
+  labels:
+    tier: frontend
+spec:
+  containers:
+  - name: nginxcontainer
+    image: nginx
+    env:
+      - name: KEY1
+        valueFrom:
+          configMapKeyRef:
+            key: key1
+            name: mycm
+    envFrom:
+      - configMapRef:
+          name: cm3

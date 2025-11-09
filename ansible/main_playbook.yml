@@ -1,0 +1,7 @@
+- 
+  name: 'main playbook'
+  hosts: server1
+  become: true
+  tasks:
+   - include: apt-playbook.yml
+   - include: script-playbook.yml

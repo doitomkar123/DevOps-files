@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxdeployment
+  namespace: test
+  labels:
+    tier: frontend
+spec:
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - image: nginx
+          name: container1
+          env:
+            - name: ENVVAR
+              value: VALUE
+            - name: ENVVAR2
+              value: ENV_VALUE2
+        - image: busybox
+          name: container2
+          env:
+            - name: NEWENV
+              value: NEWVALUE
+          args: ["sleep", "6000"]
+      initContainers:
+        - image: busybox
+          name: initcontainer1
+          args: ["sleep", "60"]
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: frontend

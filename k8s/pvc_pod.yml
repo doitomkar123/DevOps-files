@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxpodpvc
+  labels:
+    tier: frontend
+spec:
+  containers:
+  - name: cont
+    image: nginx
+    volumeMounts:
+      - mountPath: /mydata
+        name: mystorage
+  volumes:
+    - name: mystorage
+      persistentVolumeClaim:
+        claimName: mypvc

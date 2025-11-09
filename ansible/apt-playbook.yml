@@ -1,0 +1,9 @@
+- name: 'apt pkgs'
+  vars:
+    pkgs:
+      - htop
+      - tree
+  apt:
+    name: "{{ pkgs }}"
+    state: present
+    update_cache: yes

@@ -1,0 +1,23 @@
+line
+
+this is new line
+line2
+
+line3
+# MY MARK
+this is newline1
+this is newline2
+# MY MARK
+this is newline1
+this is newline2
+# MY MARK
+this is newline1
+this is newline2
+# MY MARK
+this is newline1
+this is newline2
+# MY MARK
+MY MARK
+this is newline1
+this is newline2
+MY MARK

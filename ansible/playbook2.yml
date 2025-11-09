@@ -1,0 +1,38 @@
+- 
+  name: 'playbook2'
+  hosts: server1
+  tasks:
+    - name: 'create file'
+      file:
+        path: /home/ubuntu/ansible/test/a_usingfilemodule.txt
+        state: touch
+        mode: 0777
+    - name: 'create folder'
+      file:
+        path: /home/ubuntu/ansible/test/mydir
+        state: directory
+        mode: 0755
+    - name: 'add some content'
+      lineinfile:
+        path: /home/ubuntu/ansible/test/b_usingfilemodule.txt
+        line: "this is new line"
+        insertbefore: "line2"
+    - name: 'add block'
+      blockinfile:
+        path: /home/ubuntu/ansible/test/b_usingfilemodule.txt
+        block: |
+          this is newline1
+          this is newline2
+        marker: "# MY MARK"
+        insertafter: "line3"
+
+    - name: 'copy files'
+      copy:
+        src: /home/ubuntu/ansible/test/b_usingfilemodule.txt
+        dest: /tmp/b_copymodule.txt
+     
+    - name: 'create symlink'
+      file:
+        src: /tmp/b_copymodule.txt
+        dest: /tmp/b_link.txt
+        state: link

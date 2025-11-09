@@ -1,0 +1,7 @@
+---
+# tasks file for apt-role
+- name: 'task1 install apt packages'
+  apt:
+   name: "{{ pkgs }}"
+   state: present
+   update_cache: yes

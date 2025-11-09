@@ -1,0 +1,8 @@
+- name: 'play1'
+  hosts: server1
+  tasks:
+    - name: 'task1'
+      apt:
+        name: htop
+        state: present
+        update_cache: yes

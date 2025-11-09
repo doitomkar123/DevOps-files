@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpathpod
+spec:
+  containers:
+  - image: nginx
+    name: nginxcontainer
+    volumeMounts:
+    - name: hpvol
+      mountPath: /mydata
+  volumes:
+  - name: hpvol
+    hostPath:
+      path: /tmp/mydata

@@ -1,0 +1,8 @@
+- 
+  name: 'Playbook for roles'
+  hosts: server1
+  become: true
+  become_user: root
+  roles:
+    - apt-role
+    - script-role
